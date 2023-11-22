@@ -1,0 +1,19 @@
+{
+  "name": "social-media-platform",
+  "version": "1.0.0",
+  "description": "New Social Media Platform",
+  "main": "app.js",
+  "author": "LAHIRU UDAYAKUMARA",
+  "license": "MIT",
+  "scripts": {
+    "start": "nodemon --exec babel-node  src/server.js"
+  },
+  "dependencies": {
+    "@babel/core": "^7.23.3",
+    "@babel/node": "^7.22.19",
+    "@babel/preset-env": "^7.23.3"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
+}
