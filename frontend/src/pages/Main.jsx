@@ -1,7 +1,6 @@
-import React from 'react'
-import Profile from "../pages/Profile";
 import SideBarProfileItem from "../components/sideBar/SideBarProfileItem";
 import Nav from '../components/sideBar/Nav';
+import Home from './Home';
 
 const Main = () => {
   return (
@@ -11,7 +10,7 @@ const Main = () => {
         <SideBarProfileItem />
       </div>
       <div className='w-3/4 ml-[25%]'>
-        <Profile />
+        <Home />
       </div>
     </div>
   )
