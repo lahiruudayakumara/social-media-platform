@@ -5,55 +5,55 @@ const userScema = new mongoose.Schema(
         name: {
             type: String,
             required: true,
+            min: 3,
+            max: 30
+        },
+        userName: {
+            type: String,
+            required: true,
+            min: 3,
+            max: 10
         },
         email: {
             type: String,
-            require: true,
+            required: true,
+            max: 50,
+            unique: true
         },
         password: {
             type: String,
             required: true,
-        },
-        bio: {
-            type: String,
-            default: "",
-            required: false,
+            min: 6
         },
         profilePicture: {
             type: String,
-            default: "",
-            required: false,
+            default: ""
         },
-        birthday: {
-            year: {
-                type: Number,
-                required: true,
-            },
-            month: {
-                type: Number,
-                required: true,
-            },
-            day: {
-                type: Number,
-                required: true,
-            },
+        coverPicture: {
+            type: String,
+            default: ""
         },
         location: {
             type: String,
-            default: "",
-            required: false,
+            max: 50
         },
-        website: {
-            type: String,
-            default: "",
-            required: false,
+        friends: {
+            type: Array,
+            default: []
         },
+        bio: String,
+        location: String,
+        birthday: String,
+        website: String,
+        subscribe: String,
+        viewedProfile: Number,
+        impressions: Number,
     },
     {
-        timestamps: true,
+        timestamps: true
     }
 );
 
-const User = mongoose.model("users", userScema);
+const User = mongoose.model("User", userScema);
 
 module.exports = User;
