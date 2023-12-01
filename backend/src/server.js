@@ -3,7 +3,7 @@ const cors = require('cors');
 require('dotenv').config();
 
 const userRoute = require('./routes/authRoute.js');
-const postRoute = require('./routes/postRouter.js');
+const tweetRoute = require('./routes/tweetRouter.js');
 const DBConnection =  require('./config/dbConfig.js');
 
 const app = express();
@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 8000;
 
 //Routes
 app.use('/user', userRoute);
-app.use('/post', postRoute);
+app.use('/tweet', tweetRoute);
 
 DBConnection().then(() => {
     app.listen(PORT, () => {
