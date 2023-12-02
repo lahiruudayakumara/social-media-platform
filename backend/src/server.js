@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const userRoute = require('./routes/authRoute.js');
 const tweetRoute = require('./routes/tweetRouter.js');
+const profileRoute = require('./routes/userRoutes.js')
 const DBConnection =  require('./config/dbConfig.js');
 
 const app = express();
@@ -15,6 +16,7 @@ const PORT = process.env.PORT || 8000;
 //Routes
 app.use('/user', userRoute);
 app.use('/tweet', tweetRoute);
+app.use('/profile', profileRoute);
 
 DBConnection().then(() => {
     app.listen(PORT, () => {
