@@ -54,6 +54,9 @@ const register = async (req, res) => {
 
 /* Login User */
 const login = async (req, res) => {
+
+    const refreshTokens = [];
+
     try {
         const {email, password} = req.body;
         const user = await User.findOne({email: email});
@@ -68,8 +71,12 @@ const login = async (req, res) => {
         
         const userCopy = {...user.toObject()}
         delete userCopy.password;
-        const token = jwt.sign(userCopy, process.env.JWT_TOKEN);
-        res.status(200).json({token, userCopy });
+
+        const token = jwt.sign(userCopy, process.env.JWT_TOKEN, { expiresIn: '15m' });
+        const refreshToken = jwt.sign(userCopy, process.env.REFRESH_TOKEN);
+        refreshTokens.push(refreshToken);
+
+        res.status(200).json({userCopy, token, refreshToken});
 
     } catch(error) {
         res.status(500).json(error);
